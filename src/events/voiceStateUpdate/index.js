@@ -1,6 +1,5 @@
 import { Events } from "discord.js";
 import { EmbedBuilder } from "discord.js";
-import { client } from "../../main";
 export const event = {
   name: Events.VoiceStateUpdate,
 };
@@ -8,7 +7,7 @@ export const event = {
 export const action = async (oldState, newState) => {
   const member = newState.member;
   const avatarURL = member.user.avatarURL({ dynamic: true });
-  const punch_channel = await client.channels.fetch(
+  const punch_channel = await oldState.client.channels.fetch(
     process.env.PUNCH_CHANNELID
   );
   if (!oldState.channelId && newState.channelId) {
