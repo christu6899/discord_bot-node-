@@ -7,7 +7,7 @@ const updateSlashCommand = async (commands) => {
   const reslut = await rest.put(
     Routes.applicationGuildCommands(
       process.env.APPLICATION_ID,
-      "548464827543191552"
+      "445475111894777867"
     ),
     {
       body: commands,
@@ -28,7 +28,6 @@ export const loadCommands = async () => {
 
   await updateSlashCommand(commands);
   appStore.commandsActionMap = actions;
-  console.log(appStore.commandsActionMap);
 };
 
 export const loadEvents = async () => {
@@ -41,6 +40,7 @@ export const loadEvents = async () => {
       client.once(eventfile.event.name, eventfile.action);
     } else {
       client.on(eventfile.event.name, eventfile.action);
+      console.log(eventfile.event.name);
     }
   }
 };

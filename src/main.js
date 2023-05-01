@@ -10,7 +10,13 @@ vueInit();
 dotenv.config();
 loadCommands();
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+export const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildMessages,
+  ],
+});
 const appStore = useAppStore();
 appStore.client = client;
 loadEvents();
