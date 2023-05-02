@@ -15,6 +15,7 @@ export const client = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMembers,
   ],
 });
 const appStore = useAppStore();
