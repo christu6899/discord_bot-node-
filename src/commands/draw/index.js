@@ -53,8 +53,7 @@ export const action = async (ctx) => {
   } else {
     optionValue = "";
   }
-
-  draw_Channel.send(
+  await draw_Channel.send(
     `${ctx.member.displayName} \n ${result.join("")} ${optionValue}`
   );
   await ctx.reply({ content: "請到燃燒陽壽察看結果", ephemeral: true });
